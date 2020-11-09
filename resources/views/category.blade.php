@@ -2,38 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>{{$page_title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>{{$category->title}}</title>
 </head>
 <body dir="rtl" style="text-align: right">
-<div>
-    <a href="#" class="btn btn-primary">ایجاد دسته بندی</a>
-    <a href="{{route('order')}}" class="btn btn-primary">صفحه‌ی سفارش</a>
-</div>
-<table>
-    <thead>
-    <tr>
-        <td>شناسه</td>
-        <td>عنوان</td>
-        <td>توضیحات</td>
-        <td>تاریخ ایجاد</td>
-    </tr>
-    </thead>
-    <tbody class="table">
-        @foreach($categories as $category)
+@include('layouts.navbar')
+<div class="container-fluid">
+    <table class="table">
         <tr>
             <td>{{$category->id}}</td>
-            <td><a href="">{{$category->title}}</a></td>
+            <td>{{$category->title}}</td>
             <td>{{$category->description}}</td>
             <td>{{$category->created_at}}</td>
+            <td>{{$category->updated_at}}</td>
         </tr>
-        @endforeach
-    </tbody>
-    </tr>
-</table>
-
+    </table>
+</div>
 </body>
 </html>

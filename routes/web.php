@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CategoryController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +65,24 @@ Route::get('/start', [HomeController::class, 'start']);
 Route::get('/try', [HomeController::class, 'try']);
 */
 
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+
+Route::POST('/categories/store', [CategoryController::class, 'store'])->name('category.store');
+
 Route::get('/create', [CreateController::class, 'create']);
 
 Route::get('/article/{id}', [ArticleController::class, 'index']);
+
+Route::get('/post', [PostController::class, 'index']);
+
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
+
+
+
+
+
+
