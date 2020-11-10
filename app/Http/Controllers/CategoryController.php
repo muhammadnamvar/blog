@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -41,23 +42,39 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:categories|max:15',
+//            'title' => 'required|unique:categories|max:15',
+            'title' => 'required|max:15',
             'description' => 'required'
         ],
         [
             'title.required' => 'عنوان را وارد کنید',
-            'title.unique' => 'عنوان تکراری است لطفا عنوان دیگری انتخاب کنید',
+//            'title.unique' => 'عنوان تکراری است لطفا عنوان دیگری انتخاب کنید',
             'title.max' => 'طول عنوان نباید بیشتر از ۱۵ کاراکتر باشد',
             'description.required' => 'توضیحات را وارد کنید'
         ]
         );
 
-        $category = new Category([
-            'title' => $request->get('title'),
-            'description' => $request->get('description'),
-            'active' => $request->get('active')
-        ]);
-        $category->save();
+//        $category = new Category([
+//            'title' => $request->get('title'),
+//            'description' => $request->get('description'),
+//            'active' => $request->get('active')
+//        ]);
+        $category = new Category();
+        try {
+            $category->create($request->all());
+//            $category->save();
+        }catch (Exception $exception){
+            switch ($exception->getCode()){
+                case 23000:
+                    $msg = "عنوان تکراری است لطفا یک عنوان دیگر وارد کنید";
+                    break;
+                case 24000:
+                    $msg = "یک خطای نا شناخته رخ داده است";
+                    break;
+            }
+            return redirect(route('categories'))->with('warning', $msg);
+        }
+
         $msg = 'دسته‌بندی جدید با موفقیت ثبت شد';
         return redirect(route('categories'))->with('success', $msg);
     }
@@ -70,7 +87,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-//        dd($category);
         return view('category', compact('category'));
     }
 
@@ -82,7 +98,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $page_title = "ویرایش مطلب";
+        return view('edit', compact('page_title', 'category'));
     }
 
     /**
@@ -94,7 +111,39 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+//            'title' => 'required|unique:categories|max:15',
+            'title' => 'required|max:15',
+            'description' => 'required'
+        ],
+            [
+                'title.required' => 'عنوان را وارد کنید',
+//            'title.unique' => 'عنوان تکراری است لطفا عنوان دیگری انتخاب کنید',
+                'title.max' => 'طول عنوان نباید بیشتر از ۱۵ کاراکتر باشد',
+                'description.required' => 'توضیحات را وارد کنید'
+            ]
+        );
+
+//        $category->title = $request->title;
+//        $category->description = $request->description;
+//        $category->active = $request->active;
+        try {
+//            $category->save();
+            $category->update($request->all());
+        }catch (Exception $exception){
+            switch ($exception->getCode()){
+                case 23000:
+                    $msg = "عنوان تکراری است لطفا یک عنوان دیگر وارد کنید";
+                    break;
+                case 24000:
+                    $msg = "یک خطای نا شناخته رخ داده است";
+                    break;
+            }
+            return redirect(route('categories'))->with('warning', $msg);
+        }
+
+        $msg = 'دسته‌بندی جدید با موفقیت ویرایش شد';
+        return redirect(route('categories'))->with('success', $msg);
     }
 
     /**

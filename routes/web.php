@@ -69,9 +69,13 @@ Route::get('/categories/create', [CategoryController::class, 'create'])->name('c
 
 Route::POST('/categories/store', [CategoryController::class, 'store'])->name('category.store');
 
-Route::get('/create', [CreateController::class, 'create']);
+Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
-Route::get('/article/{id}', [ArticleController::class, 'index']);
+Route::PUT('/categories/update/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+//Route::get('/create', [CreateController::class, 'create']);
+
+//Route::get('/article/{id}', [ArticleController::class, 'index']);
 
 Route::get('/post', [PostController::class, 'index']);
 

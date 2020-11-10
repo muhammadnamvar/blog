@@ -23,7 +23,11 @@
         <td>شناسه</td>
         <td>عنوان</td>
         <td>توضیحات</td>
+        <td>وضعیت</td>
+        <td>ویرایش</td>
+        <td>حذف</td>
         <td>تاریخ ایجاد</td>
+        <td>تاریخ بروزرسانی</td>
     </tr>
     </thead>
     <tbody class="table">
@@ -32,7 +36,11 @@
             <td>{{$category->id}}</td>
             <td><a href="{{route('category.show', $category->id)}}">{{$category->title}}</a></td>
             <td>{{$category->description}}</td>
+            <td>{{$category->active}}</td>
+            <td><a href="{{route('category.edit', $category->id)}}">ویرایش</a></td>
+            <td>حذف</td>
             <td>{{$category->created_at}}</td>
+            <td>{{$category->updated_at}}</td>
         </tr>
         @endforeach
     </tbody>

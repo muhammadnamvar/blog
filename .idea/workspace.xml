@@ -16,24 +16,15 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bf01f6a-2f90-4abc-8fb0-e1b5d34a87ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/categories.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/messages.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/messages.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <list id="c24d16cb-a423-4a5b-82d4-d233c09f310c" name="Query Builder" comment="" />
@@ -178,7 +169,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/Http/Controllers/PostController.php" />
@@ -186,8 +177,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
   </component>
@@ -242,6 +233,7 @@
       <workItem from="1604838208683" duration="24000" />
       <workItem from="1604838380854" duration="362000" />
       <workItem from="1604890994307" duration="624000" />
+      <workItem from="1604991643614" duration="7284000" />
     </task>
     <servers />
   </component>

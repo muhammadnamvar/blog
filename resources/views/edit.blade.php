@@ -15,31 +15,34 @@
 @include('layouts.navbar')
 <div class="container-fluid">
     @include('layouts.messages')
-    <form action="{{route('category.store')}}" method="POST">
+    <form action="{{route('category.update', $category->id)}}" method="POST">
+        @method('PUT')
         @csrf
         <div class="form-group">
             <label for="title">عنوان دسته‌بندی:</label>
-            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" >
+            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                   value="{{$category->title}}">
             @error('title')
-                <div class="alert alert-danger">{{$message}}</div>
+            <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="description">توضیحات دسته‌بندی:</label>
-            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="10"></textarea>
+            <textarea name="description" class="form-control @error('description') is-invalid @enderror"
+                      rows="10">{{$category->description}}</textarea>
             @error('description')
-                <div class="alert alert-danger">{{$message}}</div>
+            <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="active">وضعیت:</label>
             <select name="active">
-                <option value="1">منتشر شده</option>
-                <option value="0">منتشر نشده</option>
+                <option value="1" <?php if ($category->active == 1) echo 'selected' ?>>منتشر شده</option>
+                <option value="0" <?php if ($category->active == 0) echo 'selected' ?>>منتشر نشده</option>
             </select>
         </div>
         <div class="form-group">
-            <button type="submit" name="submit" class="btn btn-success">ثبت</button>
+            <button type="submit" name="submit" class="btn btn-success">ویرایش</button>
         </div>
     </form>
 </div>
