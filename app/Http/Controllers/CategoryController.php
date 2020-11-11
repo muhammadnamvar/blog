@@ -142,7 +142,7 @@ class CategoryController extends Controller
             return redirect(route('categories'))->with('warning', $msg);
         }
 
-        $msg = 'دسته‌بندی جدید با موفقیت ویرایش شد';
+        $msg = 'دسته‌بندی با موفقیت ویرایش شد';
         return redirect(route('categories'))->with('success', $msg);
     }
 
@@ -154,6 +154,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        try {
+            $category->delete();
+        }
+        catch (Exception $exception) {
+            return redirect(route('categories'))->with('warning', $exception->getCode());
+        }
+        $msg = 'ردیف مورد‌نظر با موفقیت حذف گردید';
+        return redirect(route('categories'))->with('success', $msg);
     }
 }

@@ -69,9 +69,19 @@ Route::get('/categories/create', [CategoryController::class, 'create'])->name('c
 
 Route::POST('/categories/store', [CategoryController::class, 'store'])->name('category.store');
 
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
+
+
 Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 
 Route::PUT('/categories/update/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+
+Route::get('/categories/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
 
 //Route::get('/create', [CreateController::class, 'create']);
 
@@ -81,9 +91,7 @@ Route::get('/post', [PostController::class, 'index']);
 
 Route::get('/order', [OrderController::class, 'index'])->name('order');
 
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
 
 
 

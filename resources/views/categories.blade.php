@@ -38,7 +38,8 @@
             <td>{{$category->description}}</td>
             <td>{{$category->active}}</td>
             <td><a href="{{route('category.edit', $category->id)}}">ویرایش</a></td>
-            <td>حذف</td>
+            <td><a href="{{route('category.destroy', $category->id)}}"
+                onclick="return confirm('آیا ردیف مورد نظر حذف شود؟');">حذف</a></td>
             <td>{{$category->created_at}}</td>
             <td>{{$category->updated_at}}</td>
         </tr>
