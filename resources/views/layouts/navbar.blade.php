@@ -5,6 +5,9 @@
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
+            <a class="nav-link" href="{{route('welcome')}}">داشبورد</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{route('categories')}}">دسته‌بندی ها</a>
         </li>
         <li class="nav-item">

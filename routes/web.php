@@ -22,48 +22,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-/*
-Route::get('foo', function () {
-    return 'Hello World';
-});
-
-Route::get('/bar', function (){
-    return 'Hello___World';
-});
-
-Route::get('welcome', function (){
-    return 'welcome';
-});
-
-Route::match(['get', 'post'], '/match', function (){
-    return "I get uri with match method: get or post";
-});
-
-Route::any('/any', function (){
-    return "I get uri with any method";
-});
-
-Route::redirect('/welcom', 'welcome');
-
-Route::redirect('/welcome2', '/welcome', 301);
-
-Route::redirect('/welcome3', '/welcome', 302);
-
-Route::get('/login', function (){
-    return view('login');
-});
-
-Route::view('/sign', 'login');
-
-Route::view('sign_in', 'sign_in', ['name' => 'ali']);
-
-Route::get('/home', [HomeController::class, 'index']);
-
-Route::get('/start', [HomeController::class, 'start']);
-
-Route::get('/try', [HomeController::class, 'try']);
-*/
+})->name('welcome');
 
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
 
@@ -98,3 +57,7 @@ Route::get('/order', [OrderController::class, 'index'])->name('order');
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
